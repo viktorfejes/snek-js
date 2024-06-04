@@ -86,7 +86,7 @@ function render() {
     clear_canvas("#282828");
 
     // Draw score
-    draw_text(score, canvas.width / 2, 48, "48px", "JetBrainsMono Nerd Font", "#d79921");
+    draw_text(score, canvas.width / 2, 48, "48px", "Fira Code", "#d79921");
 
     // Draw food
     draw_rectangle(

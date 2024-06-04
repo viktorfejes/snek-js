@@ -12,7 +12,6 @@
             padding: 0;
             margin: 0;
             background-color: #1d2021;
-            overflow: hidden;
         }
 
         * {
@@ -25,14 +24,62 @@
             align-items: center;
             flex-direction: column;
         }
+
         #canvas {
             border: 6px solid #98971a;
+        }
+
+        .mobile-controls {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 4rem;
+        }
+
+        .row {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .control_btn {
+            width: 16vw;
+            height: 16vw;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .control_btn#control-up {
+            background-image: url("assets/images/k_arrow_up.png");
+        }
+        .control_btn#control-right {
+            background-image: url("assets/images/k_arrow_right.png");
+        }
+        .control_btn#control-down {
+            background-image: url("assets/images/k_arrow_down.png");
+        }
+        .control_btn#control-left {
+            background-image: url("assets/images/k_arrow_left.png");
         }
     </style>
 </head>
 <body>
     <div class="container">
         <canvas id="canvas" width="800" height="800"></canvas>
+        <div class="mobile-controls">
+            <div class="row">
+                <div id="control-up" class="control_btn"></div>
+            </div>
+            <div class="row">
+                <div id="control-left" class="control_btn"></div>
+                <div id="control-right" class="control_btn"></div>
+            </div>
+            <div class="row">
+                <div id="control-down" class="control_btn"></div>
+            </div>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

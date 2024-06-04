@@ -1,8 +1,9 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+const m_controls = document.querySelectorAll(".control_btn");
 
-const food_sound = new Audio("assets/pickupCoin.wav");
-const collision_sound = new Audio("assets/collision.wav");
+const food_sound = new Audio("assets/audio/pickupCoin.wav");
+const collision_sound = new Audio("assets/audio/collision.wav");
 
 const snake_color = "#ebdbb2";
 
@@ -275,6 +276,23 @@ function on_key_down(e) {
     last_key = e.code;
 }
 
+function on_control_down(e) {
+    switch (e.target.id) {
+        case "control-up":
+            last_key = "ArrowUp";
+            break;
+        case "control-right":
+            last_key = "ArrowRight";
+            break;
+        case "control-down":
+            last_key = "ArrowDown";
+            break;
+        case "control-left":
+            last_key = "ArrowLeft";
+            break;
+    }
+}
+
 function pause_game() {
     state.game.state = GAME_STATE_PAUSED;
     state.game.is_paused = true;
@@ -375,7 +393,7 @@ function start_game() {
     state.game.state = GAME_STATE_PLAYING;
     state.game.is_paused = false;
 
-    document.removeEventListener("pointerdown", start_game);
+    canvas.removeEventListener("pointerdown", start_game);
 }
 
 function draw_new_screen() {
@@ -430,7 +448,7 @@ function draw_new_screen() {
         "#ebdbb2"
     );
 
-    document.addEventListener("pointerdown", start_game);
+    canvas.addEventListener("pointerdown", start_game);
 }
 
 function draw_paused_screen() {
@@ -588,6 +606,7 @@ function render() {
     }
 }
 
+// Game loop
 function run() {
     if (!state.game.is_paused) {
         update();
@@ -599,9 +618,12 @@ function run() {
     setTimeout(run, state.game.speed);
 }
 
+// Event listeners
+for (btn of m_controls) {
+    btn.addEventListener("pointerdown", on_control_down);
+}
 window.addEventListener("resize", on_resize);
 window.addEventListener("keydown", on_key_down);
-
 window.addEventListener("DOMContentLoaded", (e) => {
     init();
     run();

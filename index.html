@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <title>Snek</title>
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            background-color: #1d2021;
+            overflow: hidden;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-family: "Fira Code", monospace;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-size: 2rem;
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+            background-image: linear-gradient(
+                90deg,
+                #cc241d,
+                #98971a,
+                #d79921,
+                #458588
+            );
+            background-size: 100px;
+            background-position: center;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <h1>Snek.</h1>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    
+    <script src="game.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
